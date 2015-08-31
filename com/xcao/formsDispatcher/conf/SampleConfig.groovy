@@ -4,15 +4,15 @@ forms {  //to be analysed and assemble workflows
 	defaults {
 		identifiers = 'accountNumber'
 	}
-	changeSim {
-		controller = 'simChange'
-		action = 'showSimChangePage'
-		entryPoint = 'deviceSubscriberPostpaid.gsp'  //landing page  //1. analysis landing page or 2. give requirement to find best landing page?
+	aShortFlow {
+		controller = 'aShortFlow'
+		action = 'aShortFlowPage'
+		entryPoint = 'aShortFlow.gsp'  //landing page  //1. analysis landing page or 2. give requirement to find best landing page?
 		identifiers = 'accountNumber'
-		toGather = 'newSimNumber'
+		toGather = 'supprise'
 		dependency = ''
 
-		newSimNumber = '12345633321'
+		supprise = '12345633321'
 	}
 	eligibility {
 		controller = 'jump'
@@ -31,9 +31,8 @@ forms {  //to be analysed and assemble workflows
 		requires = 'TradeIn'
 		collecting = 'handset'
 	}
-	e911 {
-	}
-	regularUpgradeCheckOut {
+
+	checkOut {
 		alias = 'regularUpgradeCheckout, JumpUpgradeCheckOut'
 		identifiers = 'accountNumber, mobileNumber'
 		requires = 'handset, plan, e911'
@@ -41,7 +40,7 @@ forms {  //to be analysed and assemble workflows
 }
 
 workflows {  //short cut for known workflows
-	changeSim = 'changeSim'
+	aShortFlow = 'aShortFlow'
 	regularUpgrade = 'eligibility=>drpTradeIn'
 	jumpUpgrade = 'eligibility=>jumpTradeIn'
 }
